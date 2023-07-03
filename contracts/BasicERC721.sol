@@ -7,6 +7,8 @@ import "hardhat/console.sol";
 contract BasicERC721 is ERC721 {
 
     constructor(string memory name, string memory symbol) ERC721(name, symbol) {
-        console.log("Name:", name, "\nSymbol:", symbol);
+        console.log("Name:", name); 
+        console.log("Symbol:", symbol);
+        console.log("Deployed by:", msg.sender);
     }
 }
