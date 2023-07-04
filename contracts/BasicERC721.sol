@@ -2,23 +2,31 @@
 pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+// import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
+
 
 contract BasicERC721 is ERC721 {
  
-    uint256 public tokenSupply = 0;
-    // Immutables are stored directly in the deployed contract's bytecode (gas efficient)
-    uint256 public immutable MAX_SUPPLY;
     uint256 public constant PRICE = 0.1 ether;
+    uint256 immutable public MAX_SUPPLY;
+    address immutable deployer;
 
+    uint256 public tokenSupply = 0;
     string public baseURI;
+
+    modifier onlyOwner() {
+        require(msg.sender == deployer);
+        _;
+    }
 
     constructor(string memory name, string memory symbol, uint256 _maxSupply) ERC721(name, symbol) {
         MAX_SUPPLY = _maxSupply;
+        deployer = msg.sender;
 
-        console.log("Name:", name); 
-        console.log("Symbol:", symbol);
-        console.log("Deployed by:", msg.sender);
+        // console.log("Name:", name); 
+        // console.log("Symbol:", symbol);
+        // console.log("Deployed by:", msg.sender);
     }
 
     function mint() external payable {
@@ -33,7 +41,13 @@ contract BasicERC721 is ERC721 {
         return address(this).balance;
     }
 
+    function withdraw() external onlyOwner {
+        payable(deployer).transfer(address(this).balance);
+    }
+
     function _baseURI() internal pure override returns(string memory) {
         return "";
     }
 } 
+
+// Immutables are stored directly in the deployed contract's bytecode (gas efficient)
