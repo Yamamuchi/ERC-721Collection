@@ -4,22 +4,27 @@ async function main() {
 
   const tokenName = "MyERC";
   const tokenSymbol = "ERC";
+  const tokenPrice = 0.01;
+  const baseURI = "ipfs://QmYfAwf2Ei75NZ5eSQP9sAvBi8nCsxkH5JaMVnexxw16mt/";
+  const contractURI = "ipfs://QmReuBxLqvPJ35ub42mC6mhecfb7wcaaV96ypD2DWpASn1"
 
-  const BasicERC721 = await hre.ethers.getContractFactory("BasicERC721");
-  const BasicERC721Deployed = await BasicERC721.deploy(tokenName, tokenSymbol);
+  const DiamondShades = await hre.ethers.getContractFactory("DiamondShades");
+  const DiamondShadesDeployed = await DiamondShades.deploy(tokenName, tokenSymbol, tokenPrice, baseURI, contractURI);
 
-  await BasicERC721Deployed.deployed();
+  await DiamondShadesDeployed.deployed();
 
-  console.log("Deployed BasicERC721 to: ", BasicERC721Deployed.address);
+  console.log("Deployed BasicERC721 to: ", DiamondShadesDeployed.address);
 
   await hre.run("verify:verify", {
-    address: BasicERC721Deployed.address,
+    address: DiamondShadesDeployed.address,
     constructorArguments: [
       tokenName,
-      tokenSymbol
+      tokenSymbol,
+      tokenPrice,
+      baseURI,
+      contractURI
     ]
   });
-
 }
 
 main().catch((error) => {
