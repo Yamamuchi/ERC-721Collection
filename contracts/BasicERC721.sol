@@ -8,9 +8,9 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 /// @notice ERC721 NFT collection
 contract BasicERC721 is ERC721 {
  
-    uint256 immutable public MAX_SUPPLY;
+    uint256 public constant MAX_SUPPLY = 10;
     uint256 immutable public PRICE;
-    address immutable deployer;
+    address immutable public deployer;
 
     uint256 public tokenSupply = 0;
     string public baseURI;
@@ -27,13 +27,11 @@ contract BasicERC721 is ERC721 {
 
     constructor(
         string memory name, 
-        string memory symbol, 
-        uint256 _maxSupply, 
+        string memory symbol,
         uint256 _price, 
         string memory _baseURI, 
         string memory _contractURI
     ) ERC721(name, symbol) {
-        MAX_SUPPLY = _maxSupply;
         PRICE = _price;
         baseURI = _baseURI;
         contractURI = _contractURI;
@@ -44,8 +42,8 @@ contract BasicERC721 is ERC721 {
     /// @dev Uses _safeMint to check for recipient being a smart contract
     /// @param _recipient Address to mint NFT to
     function mint(address _recipient) external payable onlyOwner {
-        require(tokenSupply < MAX_SUPPLY, "supply used up");
-        require(msg.value == PRICE, "wrong price");
+        require(tokenSupply < MAX_SUPPLY, "All tokens minted");
+        require(msg.value == PRICE, "Incorrect amount of ETH");
 
         _safeMint(_recipient, tokenSupply);
         emit Minted(_recipient, tokenSupply);
