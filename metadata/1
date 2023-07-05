@@ -1,0 +1,14 @@
+{
+    "description": "The slightly less boring one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/1.jpeg",
+
+    "name": "Ruby Sparks",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "Classy aviators"
+        }
+    ]
+}

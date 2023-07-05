@@ -1,0 +1,14 @@
+{
+    "description": "The pink one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/6.jpeg",
+
+    "name": "Wanda Quirk",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "Bright pink"
+        }
+    ]
+}

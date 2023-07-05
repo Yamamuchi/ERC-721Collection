@@ -1,0 +1,14 @@
+{
+    "description": "The comedic one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/7.jpeg",
+
+    "name": "Oliver Jester",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "On top of the red nose"
+        }
+    ]
+}

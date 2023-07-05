@@ -1,0 +1,14 @@
+{
+    "description": "The boring one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/0.jpeg",
+
+    "name": "James Smith",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "Classic black"
+        }
+    ]
+}

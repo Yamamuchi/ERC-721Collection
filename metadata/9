@@ -1,0 +1,14 @@
+{
+    "description": "The decentralized one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/9.jpeg",
+
+    "name": "Satoshi Buterin",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "BTC + ETH"
+        }
+    ]
+}

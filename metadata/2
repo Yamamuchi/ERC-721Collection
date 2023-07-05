@@ -1,0 +1,14 @@
+{
+    "description": "The bright one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/2.jpeg",
+
+    "name": "Sunny Patel",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "Colourful aviators"
+        }
+    ]
+}

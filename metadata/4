@@ -1,0 +1,14 @@
+{
+    "description": "The childish one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/4.jpeg",
+
+    "name": "Charlie Bubbles",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "Average blue"
+        }
+    ]
+}

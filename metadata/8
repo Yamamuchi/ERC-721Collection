@@ -1,0 +1,14 @@
+{
+    "description": "The swag one.",
+
+    "image": "ipfs://QmUghy83NYMUr3ikd93dNrf2ZdUknuh7MbpnUcS2xMLc4L/8.jpeg",
+
+    "name": "Ash Reynolds",
+
+    "attributes": [
+        {
+            "trait_type": "Sunglasses",
+            "value": "Pixelated"
+        }
+    ]
+}
