@@ -3,6 +3,9 @@ pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
+/// @title Diamond NFT Collection
+/// @author Harvey Yorke
+/// @notice ERC721 NFT collection
 contract BasicERC721 is ERC721 {
  
     uint256 immutable public MAX_SUPPLY;
@@ -22,12 +25,19 @@ contract BasicERC721 is ERC721 {
         _;
     }
 
-    constructor(string memory name, string memory symbol, uint256 _maxSupply, uint256 _price, string memory _baseURI, string memory _contractURI) ERC721(name, symbol) {
+    constructor(
+        string memory name, 
+        string memory symbol, 
+        uint256 _maxSupply, 
+        uint256 _price, 
+        string memory _baseURI, 
+        string memory _contractURI
+    ) ERC721(name, symbol) {
         MAX_SUPPLY = _maxSupply;
         PRICE = _price;
-        deployer = msg.sender;
         baseURI = _baseURI;
         contractURI = _contractURI;
+        deployer = msg.sender;
     }
 
     /// @notice Mints an NFT to the recipient
