@@ -1,13 +1,5 @@
-# Sample Hardhat Project
+# ERC-721 NFT Collection
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+A basic NFT collection, built on top of the openzeppelin ERC-721 contract.
+View on opensea Sepolia testnet here: https://testnets.opensea.io/collection/diamond-shades
+Sepolia testnet token address: 0x9922e1BdB3520333a84A8AA9098E5e8faA2dE9C2
