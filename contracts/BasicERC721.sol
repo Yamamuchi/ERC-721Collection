@@ -8,8 +8,8 @@ import "hardhat/console.sol";
 
 contract BasicERC721 is ERC721 {
  
-    uint256 public constant PRICE = 0.1 ether;
     uint256 immutable public MAX_SUPPLY;
+    uint256 immutable public PRICE;
     address immutable deployer;
 
     uint256 public tokenSupply = 0;
@@ -20,8 +20,9 @@ contract BasicERC721 is ERC721 {
         _;
     }
 
-    constructor(string memory name, string memory symbol, uint256 _maxSupply) ERC721(name, symbol) {
+    constructor(string memory name, string memory symbol, uint256 _maxSupply, uint256 _price) ERC721(name, symbol) {
         MAX_SUPPLY = _maxSupply;
+        PRICE = _price;
         deployer = msg.sender;
 
         // console.log("Name:", name); 
@@ -41,12 +42,12 @@ contract BasicERC721 is ERC721 {
         return address(this).balance;
     }
 
-    function withdraw() external onlyOwner {
-        payable(deployer).transfer(address(this).balance);
+    function _baseURI() internal pure override returns(string memory) {
+        return "ipfs://QmYfAwf2Ei75NZ5eSQP9sAvBi8nCsxkH5JaMVnexxw16mt/";
     }
 
-    function _baseURI() internal pure override returns(string memory) {
-        return "";
+    function withdraw() external onlyOwner {
+        payable(deployer).transfer(address(this).balance);
     }
 } 
 
