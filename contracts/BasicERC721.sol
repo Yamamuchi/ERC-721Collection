@@ -30,6 +30,9 @@ contract BasicERC721 is ERC721 {
         contractURI = _contractURI;
     }
 
+    /// @notice Mints an NFT to the recipient
+    /// @dev Uses _safeMint to check for recipient being a smart contract
+    /// @param _recipient Address to mint NFT to
     function mint(address _recipient) external payable onlyOwner {
         require(tokenSupply < MAX_SUPPLY, "supply used up");
         require(msg.value == PRICE, "wrong price");
@@ -39,8 +42,9 @@ contract BasicERC721 is ERC721 {
         tokenSupply++;
     }
 
-    /// @notice View number of tokens in collection that an address holds
-    function viewBalance() external view returns (uint256) {
+    /// @notice View the ETH balance of the contract
+    /// @return contractBalance Balance of the contract
+    function viewBalance() external view returns (uint256 contractBalance) {
         return address(this).balance;
     }
 
@@ -51,13 +55,13 @@ contract BasicERC721 is ERC721 {
         emit BaseURIChanged(msg.sender, _newBaseURI);
     }
 
-    /// @notice Return baseURI
+    /// @return baseURI The contract baseURI
     function _baseURI() internal view override returns(string memory) {
         return baseURI;
     }
 
     /// @notice Update contractURI/NFT metadata
-    /// @param _newContractURI New metadata
+    /// @param _newContractURI New collection metadata
     function setContractURI(string calldata _newContractURI) public onlyOwner {
         contractURI = _newContractURI;
         emit ContractURIChanged(msg.sender, _newContractURI);
@@ -68,5 +72,3 @@ contract BasicERC721 is ERC721 {
         payable(deployer).transfer(address(this).balance);
     }
 } 
-
-// Immutables are stored directly in the deployed contract's bytecode (gas efficient)
