@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 /// @title Diamond NFT Collection
 /// @author Harvey Yorke
 /// @notice ERC721 NFT collection
-contract BasicERC721 is ERC721 {
+contract DiamondShades is ERC721 {
  
     uint256 public constant MAX_SUPPLY = 10;
     uint256 immutable public PRICE;
