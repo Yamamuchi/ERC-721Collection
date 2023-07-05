@@ -4,12 +4,11 @@ async function main() {
 
   const tokenName = "MyERC";
   const tokenSymbol = "ERC";
-  const tokenPrice = 0.01;
   const baseURI = "ipfs://QmYfAwf2Ei75NZ5eSQP9sAvBi8nCsxkH5JaMVnexxw16mt/";
   const contractURI = "ipfs://QmReuBxLqvPJ35ub42mC6mhecfb7wcaaV96ypD2DWpASn1"
 
   const DiamondShades = await hre.ethers.getContractFactory("DiamondShades");
-  const DiamondShadesDeployed = await DiamondShades.deploy(tokenName, tokenSymbol, tokenPrice, baseURI, contractURI);
+  const DiamondShadesDeployed = await DiamondShades.deploy(tokenName, tokenSymbol, baseURI, contractURI);
 
   await DiamondShadesDeployed.deployed();
 
@@ -20,7 +19,6 @@ async function main() {
     constructorArguments: [
       tokenName,
       tokenSymbol,
-      tokenPrice,
       baseURI,
       contractURI
     ]
